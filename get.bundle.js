@@ -30,7 +30,7 @@ function process_streams() {
 		var disp_name = streams[key].user_info.display_name;
 		var title = streams[key].stream_info.title;
 		var type = streams[key].stream_info.type;
-		document.write(disp_name + " is live! - Streaming " + title + "<br>");
+		document.write(disp_name + " is live! - " + title + "<br>");
 	}
 	document.write("</code></pre>");
 }
