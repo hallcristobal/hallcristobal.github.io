@@ -77,7 +77,7 @@ function get_streams_for_game(id) {
 			var json = JSON.parse(body);
 			[].forEach.call(json.data, (stream) => {
 				var title = stream.title.toLowerCase();
-				if (whitelist.some((v) => title.indexOf(v) > -1) && blacklist.some((v) => title.indexOf(v) == -1)) {
+				if (whitelist.some((v) => title.indexOf(v) > -1) && blacklist.every((v) => title.indexOf(v) == -1)) {
 					streams[stream.user_id] = {};
 					streams[stream.user_id].stream_info = stream;
 				}
