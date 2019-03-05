@@ -107,10 +107,12 @@ function run(url) {
 				}
 			}
 		}
+
 	}).catch(err => console.error(err));
 }
 run("https://raw.githubusercontent.com/glankk/gz/master/src/gz/z64.h");
 
 if(window && !window.run) {
 	window.run = run;
+	window.gDefinitions = gDefinitions;
 }
