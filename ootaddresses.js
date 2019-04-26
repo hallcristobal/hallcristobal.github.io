@@ -1,3 +1,4 @@
+///@ts-check
 const https = require("https");
 const fs = require("fs");
 const gDefinitions = {};
@@ -21,10 +22,11 @@ function get_header_file(url) {
 
 /**
  * @param {string} definitions
- * @returns {{[key: string]: number}}
+ * @returns {{[key: string]: { value: number, raw: string }}}
  */
 function getDefinitions(definitions) {
     const defs = definitions.split('\n');
+    /**@type {{[key: string]: { value: number, raw: string }}} */
     const obj = {};
     for (const definition of defs) {
         if (!definition) {
@@ -35,6 +37,7 @@ function getDefinitions(definitions) {
             console.warn("invalid count", definition, split);
         } else {
             const name = split[1].trim();
+            ///@ts-ignore
             obj[name] = {};
             obj[name].value = parseInt(split[2].substring(2), 16);
             obj[name].raw = definition.trim();
@@ -42,11 +45,9 @@ function getDefinitions(definitions) {
     }
     return obj;
 }
-
+function getVersion(str) { return str.substring(str.search(/Z64_OOT/)); }
 /**@param {string} definitions */
 function splitVersions(definitions) {
-    /**@type string */
-    const getVersion = (str) => str.substring(str.search(/Z64_OOT/));
     let firstLineBreak = definitions.search("\n");
     let endIndex = definitions.search(/\#elif/);
     if (!endIndex) {
@@ -76,6 +77,28 @@ function splitVersions(definitions) {
         return null;
     }
 
+}
+
+/**@param {string} type */
+function parseDataType(type) {
+    let pointer = false;
+    if (type.startsWith("*(")) {
+        pointer = true;
+        type = type.substring(2);
+    } else {
+        type = type.substring(1);
+    }
+    const _prim = /[a-zA-Z0-9\_]+/.exec(type);
+    if(!_prim) {
+        return "";
+    }
+    const prim = _prim[0];
+    type = type.substring(prim.length);
+    if (type.endsWith(")")) {
+        type = type.substring(0, type.length - 1);
+    }
+    
+    console.log(prim + "\t" + type + "\t" + pointer);
 }
 
 /**@param {string} definitions */
@@ -124,7 +147,7 @@ function parseDataDefinitions(definitions) {
         if (type.endsWith("(")) {
             type = type.substr(0, type.length - 1);
         }
-        def.type = type;
+        def.type = parseDataType(type);
         gData.push(def);
     }
 }
@@ -144,7 +167,9 @@ function processData(raw) {
     }
     header = header.substring(0, dataEnd.index);
     parseDataDefinitions(header);
+    ///@ts-ignore
     if (typeof window === "object" && window && window.buildTypesTable) {
+        ///@ts-ignore
         window.buildTypesTable(gData);
     }
 }
@@ -181,22 +206,34 @@ function processDefinitions(header) {
             }
         }
     }
+    ///@ts-ignore
     if (typeof window === "object" && window && window.buildTable) {
+        ///@ts-ignore
         window.buildTable(gDefinitions);
     }
 }
 
+/**@param {string} header */
+function parseHeaderFile(header) {
+    processDefinitions(header);
+    processData(header);
+    // fs.writeFileSync("data.json", Buffer.from(JSON.stringify(gData, null, 2)));
+}
+
 /**@param {string} url */
 function run(url) {
-    get_header_file(url).then(
-        /**@param {string} header */
-        header => {
-            processDefinitions(header);
-            processData(header);
-            // fs.writeFileSync("data.json", Buffer.from(JSON.stringify(gData, null, 2)));
-        }).catch(err => console.error(err));
+    get_header_file(url).then(parseHeaderFile).catch(err => console.error(err));
 }
-run("https://raw.githubusercontent.com/glankk/gz/master/src/gz/z64.h");
+// run("https://raw.githubusercontent.com/glankk/gz/master/src/gz/z64.h");
+
+fs.readFile("z64.h", (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    parseHeaderFile(data.toString());
+    // console.log(gData, gDefinitions);
+});
 
 function storeGlobaly(global) {
     if (typeof global === "object" && global && !global.run) {
