@@ -1,20 +1,181 @@
 <html>
 
 <head>
-	<title>Cris Hall-Ramos</title>
+    <title>Cris Hall-Ramos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .card-body {
+            background-color: #fff;
+            flex: 1;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+    </style>
 </head>
 
 <body>
-	Hello!</br>
-	<a href="/ffxiv">/ffxiv</a></br>
-	<a href="/pld">/pld</a></br>
-	<a href="/BRB">/BRB</a></br>
-	<a href="/xiv_rotations">/xiv_rotations</a></br>
-	<a href="/blu_tracker">/blu_tracker</a></br>
-	<a href="/xiv_rankings">/xiv_rankings</a></br>
-	<a href="/xiv_rankings?full=true">/xiv_rankings?full=true</a></br>
-	<a href="/xiv_uwu_learning">/xiv_uwu_learning</a></br>
-	<a href="/marking_macro">/marking_macro</a></br>
+    <main class="container">
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold">My name is Cris, welcome to my small little page!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Software Developer<br/>Graduated from Full Sail University 2017 - Valedictorian
+                </p>
+            </div>
+        </div>
+        <div class="row g-4 row-cols-1 row-cols-md-3">
+            <div class="col d-flex align-items-start">
+                <div class="card-container">
+                    <h3>Myself</h3>
+                    <div class="card-body shadow-sm">
+                        <p class="w-100">
+                            Residing from Pennsylvania, USA, my passions change from day to day, but I'm always
+                            excited to learn new things.
+                            I enjoy working on projects, sometimes they will get linked here, but probably not be sure
+                            to check my GitHub page for more that I've worked on.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-items-start">
+                <div class="card-container">
+                    <h3>Hobbies</h3>
+                    <div class="card-body shadow-sm">
+                        <ul class="list-group list-group-flush w-100">
+                            <li class="list-group-item">- Developing tools and small projects</li>
+                            <li class="list-group-item">- Playing Guitar</li>
+                            <li class="list-group-item">- Playing games (Zelda & Final Fantasy XIV)</li>
+                            <li class="list-group-item">- Studying and learning Japanese</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col align-items-start">
+                <div class="card-container">
+                    <h3>Languages</h3>
+                    <div class="card-body shadow-sm">
+                        <ul class="list-group list-group-flush w-100">
+                            <li class="list-group-item">- Typescript/Javascript</li>
+                            <li class="list-group-item">- C#</li>
+                            <li class="list-group-item">- Rust</li>
+                            <li class="list-group-item">- C/C++</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-3 p-3 bg-body shadow-sm">
+            <h3 class="border-bottom pt-3">Larger Projects <br />
+                <small style="font-size: 0.5em" class="text-muted">Projects done either as a team - or to showcase
+                    abilities</small>
+            </h3>
+            <div class="d-flex pt-3">
+                <p class="pb-3 mb-0 small lh-small border-bottom w-100">
+                    <strong class="d-block text-gray-dark">LiveSplit</strong>
+                    Multipurpose, highly customizable timer program created for Speedrunners,
+                    but
+                    can be used for a variety of applications.
+                    <br />
+                    <small class="project-links text-muted">
+                        <a href="https://livesplit.org">LiveSplit Website</a> - <a
+                            href="https://github.com/LiveSplit/LiveSplit">GitHub</a>
+                    </small>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-3 mb-0 small lh-small border-bottom w-100">
+                    <strong class="d-block text-gray-dark">livesplit-core</strong>
+                    A ground up rewrite of all core functionality of LiveSplit. Written in
+                    Rust and designed to be completely cross platform, with provided releases to numerous different
+                    architectures and languages.
+                    <br />
+                    <small class="project-links text-muted">
+                        <a href="https://github.com/LiveSplit/livesplit-core">GitHub</a>
+                    </small>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-3 mb-0 small lh-small border-bottom w-100">
+                    <strong class="d-block text-gray-dark">LiveSplitOne</strong>
+                    The visual UI of livesplit-core, running In-Browser with the full Rust
+                    backend using WASM.
+                    <br />
+                    <small class="project-links text-muted">
+                        <a href="https://one.livesplit.org/">Browser Site</a> - <a
+                            href="https://github.com/LiveSplit/LiveSplitOne">GitHub</a>
+                    </small>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-3 mb-0 small lh-small border-bottom w-100">
+                    <strong class="d-block text-gray-dark">TPGZ (Twilight Princess Practice Rom)</strong>
+                    Fully functional mod for the game Legend of Zelda: Twilight Princess for the Nintendo Gamecube.
+                    Originally written by myself in Rust, this mod utilizes a wide
+                    array of what can be handled by injecting compiled PowerPC code into a pre-existing game, while
+                    linking to and re-using functions already residing in the game's code. The result of a lot of
+                    sleepless nights
+                    Reverse
+                    Engineering the game, the project itself is now split into multiple different C++ projects linked
+                    together, from multiple contributers.
+                    <br />
+                    <small class="project-links">
+                        <a href="https://github.com/zsrtp/tpgz">GitHub</a> - <a href="https://tpgz.io">Web Patcher</a>
+                    </small>
+                </p>
+            </div>
+        </div>
+
+        <div class="my-3 p-3 bg-body shadow-sm">
+            <h3 class="border-bottom pt-3">Smaller Projects <br />
+                <small style="font-size: 0.5em" class="text-muted">Done for fun or to help someone out - usually quick
+                    and dirty</small>
+            </h3>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/ffxiv">FFXIV Mitigation Calculator</a>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/BRB">Bouncing configurable "DVD Screensaver"</a>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/xiv_rotations">XIV Rotations - My own take on FFXIV Rotation creator</a>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/xiv_rankings">XIV Rankings - Firmament rankings for FFXIV (now defunct as the event longer
+                        on going)</a></li>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/xiv_uwu_learning">UWU Learning Diagram - For Learning "Ifrit Dashes" Mechanic in The
+                        Wepons Refain (Ultimate) encounter</a></li>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/marking_macro">Marking Macro - Small tool for generating random FF marking macros</a>
+                </p>
+            </div>
+            <div class="d-flex pt-3">
+                <p class="pb-1 mb-0 small lh-small border-bottom w-100">
+                    <a href="/blu_tracker">Blu Mage Spell checklist</a>
+                </p>
+            </div>
+    </main>
+    <a style="font-size: x-small" href="/pld">frog</a>
 </body>
 
 </html>
