@@ -3,6 +3,11 @@
     var cbAttack2 = document.getElementById("cbAttack2");
     var cbAttack3 = document.getElementById("cbAttack3");
     var cbAttack4 = document.getElementById("cbAttack4");
+    var cbAttack5 = document.getElementById("cbAttack5");
+    var cbAttack6 = document.getElementById("cbAttack6");
+    var cbAttack7 = document.getElementById("cbAttack7");
+    var cbAttack8 = document.getElementById("cbAttack8");
+
     var cbBind1 = document.getElementById("cbBind1");
     var cbBind2 = document.getElementById("cbBind2");
     var cbBind3 = document.getElementById("cbBind3");
@@ -40,6 +45,10 @@
         if (cbAttack2.checked) markers.push("attack2");
         if (cbAttack3.checked) markers.push("attack3");
         if (cbAttack4.checked) markers.push("attack4");
+        if (cbAttack5.checked) markers.push("attack5");
+        if (cbAttack6.checked) markers.push("attack6");
+        if (cbAttack7.checked) markers.push("attack7");
+        if (cbAttack8.checked) markers.push("attack8");
         if (cbBind1.checked) markers.push("bind1");
         if (cbBind2.checked) markers.push("bind2");
         if (cbBind3.checked) markers.push("bind3");
@@ -75,6 +84,10 @@
         if (cbAttack2.checked) selected.push("attack2");
         if (cbAttack3.checked) selected.push("attack3");
         if (cbAttack4.checked) selected.push("attack4");
+        if (cbAttack5.checked) selected.push("attack5");
+        if (cbAttack6.checked) selected.push("attack6");
+        if (cbAttack7.checked) selected.push("attack7");
+        if (cbAttack8.checked) selected.push("attack8");
         if (cbBind1.checked) selected.push("bind1");
         if (cbBind2.checked) selected.push("bind2");
         if (cbBind3.checked) selected.push("bind3");
@@ -118,6 +131,10 @@
         if (selected.indexOf("attack2") > -1) cbAttack2.checked = true;
         if (selected.indexOf("attack3") > -1) cbAttack3.checked = true;
         if (selected.indexOf("attack4") > -1) cbAttack4.checked = true;
+        if (selected.indexOf("attack5") > -1) cbAttack5.checked = true;
+        if (selected.indexOf("attack6") > -1) cbAttack6.checked = true;
+        if (selected.indexOf("attack7") > -1) cbAttack7.checked = true;
+        if (selected.indexOf("attack8") > -1) cbAttack8.checked = true;
         if (selected.indexOf("bind1") > -1) cbBind1.checked = true;
         if (selected.indexOf("bind2") > -1) cbBind2.checked = true;
         if (selected.indexOf("bind3") > -1) cbBind3.checked = true;
@@ -148,6 +165,10 @@
     cbAttack2.onchange = function () { saveSelections(); }
     cbAttack3.onchange = function () { saveSelections(); }
     cbAttack4.onchange = function () { saveSelections(); }
+    cbAttack5.onchange = function () { saveSelections(); }
+    cbAttack6.onchange = function () { saveSelections(); }
+    cbAttack7.onchange = function () { saveSelections(); }
+    cbAttack8.onchange = function () { saveSelections(); }
     cbBind1.onchange = function () { saveSelections(); }
     cbBind2.onchange = function () { saveSelections(); }
     cbBind3.onchange = function () { saveSelections(); }
